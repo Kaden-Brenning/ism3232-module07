@@ -15,7 +15,7 @@ def test_find_order_returns_a_dictionary(tmp_path):
     assert order["pickup_desk"] == "North Desk"
 
 
-def test_approve_changes_the_address_once(tmp_path):
+def test_approve_changes_the_pickup_once(tmp_path):
     db_file = make_db(tmp_path)
     database.add_change_request(db_file, "B401", "cancel")
     assert database.approve_request(db_file, 1) == "Request 1 approved."

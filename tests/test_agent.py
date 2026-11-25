@@ -35,11 +35,11 @@ def test_model_chosen_lookup_answers_from_the_database(tmp_path):
     assert bot.history[1]["content"] == "Order B401 is ordered."
 
 
-def test_made_up_address_never_reaches_the_database(tmp_path):
+def test_made_up_pickup_never_reaches_the_database(tmp_path):
     model = FakeModel(
         [
             ask_for_tool(
-                "request_address_change",
+                "request_pickup_change",
                 {"order_id": "B401", "new_pickup_desk": "South"},
             ),
             {"text": "What is the new pickup?"},

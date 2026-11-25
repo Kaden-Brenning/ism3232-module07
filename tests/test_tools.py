@@ -33,7 +33,7 @@ def test_lookup_order_inside_sentence(tmp_path):
 def test_pickup_change_waits_for_staff(tmp_path):
     tools = make_tools(tmp_path)
     reply = tools.run(
-        "request_address_change",
+        "request_pickup_change",
         {
             "order_id": "B401",
             "new_pickup_desk": "South Desk",

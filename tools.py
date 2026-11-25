@@ -16,7 +16,7 @@ class CrestviewTools:
         return [
             self.look_up_order,
             self.look_up_textbook,
-            self.request_address_change,
+            self.request_pickup_change,
             self.check_request,
         ]
 
@@ -59,7 +59,7 @@ class CrestviewTools:
 
         return "That textbook was not found."
 
-    def request_address_change(self, order_id, new_pickup_desk):
+    def request_pickup_change(self, order_id, new_pickup_desk):
         """Ask staff to change the pickup desk on one order.
 
         Args:
@@ -125,7 +125,7 @@ class CrestviewTools:
 
             return self.look_up_textbook(item)
 
-        if name == "request_address_change":
+        if name == "request_pickup_change":
             order_id = self.clean(arguments, "order_id")
             new_pickup_desk = self.clean(arguments, "new_pickup_desk")
 
@@ -138,7 +138,7 @@ class CrestviewTools:
             if not self.customer_said(history, new_pickup_desk):
                 return "The customer has not given that pickup desk. Ask them for it."
 
-            return self.request_address_change(order_id, new_pickup_desk)
+            return self.request_pickup_change(order_id, new_pickup_desk)
 
         if name == "check_request":
             number = self.clean(arguments, "number")
